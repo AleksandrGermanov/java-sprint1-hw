@@ -5,12 +5,10 @@ public class Converter {
     double stepInKcal = stepInCal / 1000;
 
     double convertToKm(int stepsSum) {
-        double d=Math.round(stepsSum * stepInKm*1000);
-        return d/1000; //по какой-то причине выражение Math.round(stepsSum * stepInKm*1000)/1000 JVM округляет до целого
+        return stepsSum * stepInKm;
     }
 
     double convertToKcal(int stepsSum) {
-        double d = Math.round(stepsSum * stepInKcal*1000);
-        return d/1000;
+        return stepsSum * stepInKcal;
     }
 }

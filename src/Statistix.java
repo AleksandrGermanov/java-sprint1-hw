@@ -32,8 +32,6 @@ public class Statistix {
 
     static int countAvgSteps(int[][] steps, int month) {
         return Math.round(countSum(steps, month) / steps[month].length);
-
-
     }
 
     static int countBestSeries(int[][] steps, int month, int goal) {
