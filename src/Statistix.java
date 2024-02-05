@@ -1,15 +1,15 @@
 public class Statistix {
-//Собрал статистические методы сюда, чтобы "не перегружать" класс StepTracker
+//РЎРѕР±СЂР°Р» СЃС‚Р°С‚РёСЃС‚РёС‡РµСЃРєРёРµ РјРµС‚РѕРґС‹ СЃСЋРґР°, С‡С‚РѕР±С‹ "РЅРµ РїРµСЂРµРіСЂСѓР¶Р°С‚СЊ" РєР»Р°СЃСЃ StepTracker
 
     static void showStepsOnDays(int[][] steps, int month) {
         for (int i = 0; i < steps[month].length; i++) {
-            System.out.print((i + 1) + " день: " + steps[month][i] + ", ");
+            System.out.print((i + 1) + " РґРµРЅСЊ: " + steps[month][i] + ", ");
             if ((i + 1) % 10 == 0 && i != 29) {
                 System.out.print("\n");
             }
         }
-        System.out.print("\b\b\n"); /* исправлено дополнительным условием в сторке 7 - теперь
-         удаляет ", " в последнем выводе цикла*/
+        System.out.print("\b\b\n"); /* РёСЃРїСЂР°РІР»РµРЅРѕ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рј СѓСЃР»РѕРІРёРµРј РІ СЃС‚РѕСЂРєРµ 7 - С‚РµРїРµСЂСЊ
+         СѓРґР°Р»СЏРµС‚ ", " РІ РїРѕСЃР»РµРґРЅРµРј РІС‹РІРѕРґРµ С†РёРєР»Р°*/
     }
 
     static int findMaxSteps(int[][] steps, int month) {

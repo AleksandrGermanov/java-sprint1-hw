@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class StepTracker {
 
-    String[] months = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-            "Июль", " Август", "Сентябрь", "Октябрь", "Ноябрь", " Декабрь"};
+    String[] months = {"РЇРЅРІР°СЂСЊ", "Р¤РµРІСЂР°Р»СЊ", "РњР°СЂС‚", "РђРїСЂРµР»СЊ", "РњР°Р№", "РСЋРЅСЊ",
+            "РСЋР»СЊ", " РђРІРіСѓСЃС‚", "РЎРµРЅС‚СЏР±СЂСЊ", "РћРєС‚СЏР±СЂСЊ", "РќРѕСЏР±СЂСЊ", " Р”РµРєР°Р±СЂСЊ"};
     int[][] daySteps = new int[12][30];
 
     int stepsGoal = 10000;
@@ -14,16 +14,16 @@ public class StepTracker {
 
 
     boolean isYes(Scanner scanner) {
-        System.out.println("\"Да\" - введите цифру 1, \"Нет\" - ввдедите любой другой символ");
+        System.out.println("\"Р”Р°\" - РІРІРµРґРёС‚Рµ С†РёС„СЂСѓ 1, \"РќРµС‚\" - РІРІРґРµРґРёС‚Рµ Р»СЋР±РѕР№ РґСЂСѓРіРѕР№ СЃРёРјРІРѕР»");
         return scanner.next().equals("1");
     }
 
     boolean isMonthSucceed(Scanner scanner) {
-        System.out.println("Введите месяц 0(\"Январь\")-11(\"Декабрь\"):");
+        System.out.println("Р’РІРµРґРёС‚Рµ РјРµСЃСЏС† 0(\"РЇРЅРІР°СЂСЊ\")-11(\"Р”РµРєР°Р±СЂСЊ\"):");
         int savedMonth = month;
         month = scanner.nextInt();
         if (month < 0 || month > 11) {
-            System.out.println("Не получилось определить месяц! Возвращаемся в главное меню!");
+            System.out.println("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ РѕРїСЂРµРґРµР»РёС‚СЊ РјРµСЃСЏС†! Р’РѕР·РІСЂР°С‰Р°РµРјСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ!");
             month = savedMonth;
             return false;
         } else {
@@ -35,8 +35,8 @@ public class StepTracker {
         boolean isMonthInput = false;
 
         if (day == 30) {
-            System.out.println("В прошлый раз вы сохраняли значение за последний день месяца.");
-            System.out.println("Хотите перейти к следующему месяцу?");
+            System.out.println("Р’ РїСЂРѕС€Р»С‹Р№ СЂР°Р· РІС‹ СЃРѕС…СЂР°РЅСЏР»Рё Р·РЅР°С‡РµРЅРёРµ Р·Р° РїРѕСЃР»РµРґРЅРёР№ РґРµРЅСЊ РјРµСЃСЏС†Р°.");
+            System.out.println("РҐРѕС‚РёС‚Рµ РїРµСЂРµР№С‚Рё Рє СЃР»РµРґСѓСЋС‰РµРјСѓ РјРµСЃСЏС†Сѓ?");
             if (isYes(scanner)) {
                 month = month + 1;
                 day = 0;
@@ -45,7 +45,7 @@ public class StepTracker {
                 month = 0;
             }
         } else {
-            System.out.println("Хотите ввести значение за текущий месяц (" +
+            System.out.println("РҐРѕС‚РёС‚Рµ РІРІРµСЃС‚Рё Р·РЅР°С‡РµРЅРёРµ Р·Р° С‚РµРєСѓС‰РёР№ РјРµСЃСЏС† (" +
                     months[month] + ")?");
             if (!isYes(scanner)) {
                 isMonthInput = true;
@@ -54,33 +54,33 @@ public class StepTracker {
                 }
             }
         }
-        if (!isMonthInput)//Если пользователь не вводил месяц вручную, спрашиваем
-            System.out.println("Хотите ввести значение за следующий день? (текущий день - " + day + ")");
+        if (!isMonthInput)//Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РІРІРѕРґРёР» РјРµСЃСЏС† РІСЂСѓС‡РЅСѓСЋ, СЃРїСЂР°С€РёРІР°РµРј
+            System.out.println("РҐРѕС‚РёС‚Рµ РІРІРµСЃС‚Рё Р·РЅР°С‡РµРЅРёРµ Р·Р° СЃР»РµРґСѓСЋС‰РёР№ РґРµРЅСЊ? (С‚РµРєСѓС‰РёР№ РґРµРЅСЊ - " + day + ")");
         if (!isMonthInput && isYes(scanner)) {
             day = day + 1;
             if (day == 31) {
                 day = 1;
             }
         } else {
-            System.out.println("Введите день 1-30 (текущий день - " + day + "):");
+            System.out.println("Р’РІРµРґРёС‚Рµ РґРµРЅСЊ 1-30 (С‚РµРєСѓС‰РёР№ РґРµРЅСЊ - " + day + "):");
             int savedDay = day;
             day = scanner.nextInt();
             if (day < 1 || day > 30) {
-                System.out.println("Не получилось определить день! Возвращаемся в главное меню!");
+                System.out.println("РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ РѕРїСЂРµРґРµР»РёС‚СЊ РґРµРЅСЊ! Р’РѕР·РІСЂР°С‰Р°РµРјСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ!");
                 day = savedDay;
                 return;
             }
         }
-        System.out.println("Введите количесво шагов.");
+        System.out.println("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃРІРѕ С€Р°РіРѕРІ.");
         daySteps[month][day - 1] = scanner.nextInt();
-        System.out.println("Месяц " + months[month] + ". " +
-                day + "-е число. Пройдено шагов: " + daySteps[month][day - 1] + ".");
+        System.out.println("РњРµСЃСЏС† " + months[month] + ". " +
+                day + "-Рµ С‡РёСЃР»Рѕ. РџСЂРѕР№РґРµРЅРѕ С€Р°РіРѕРІ: " + daySteps[month][day - 1] + ".");
     }
 
     void resetYear(int[][] daySteps, Scanner scanner) {
-        /*сбросим значение за год воизбежание накладок при повторном заполнении массива(через год),
-        иначе незаполненные поля будут содержать значения за предыдущий год*/
-        System.out.println("Вы точно хотите сбросить количество шагов за год?");
+        /*СЃР±СЂРѕСЃРёРј Р·РЅР°С‡РµРЅРёРµ Р·Р° РіРѕРґ РІРѕРёР·Р±РµР¶Р°РЅРёРµ РЅР°РєР»Р°РґРѕРє РїСЂРё РїРѕРІС‚РѕСЂРЅРѕРј Р·Р°РїРѕР»РЅРµРЅРёРё РјР°СЃСЃРёРІР°(С‡РµСЂРµР· РіРѕРґ),
+        РёРЅР°С‡Рµ РЅРµР·Р°РїРѕР»РЅРµРЅРЅС‹Рµ РїРѕР»СЏ Р±СѓРґСѓС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ Р·Р° РїСЂРµРґС‹РґСѓС‰РёР№ РіРѕРґ*/
+        System.out.println("Р’С‹ С‚РѕС‡РЅРѕ С…РѕС‚РёС‚Рµ СЃР±СЂРѕСЃРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ Р·Р° РіРѕРґ?");
         if (isYes(scanner)) {
             for (int i = 0; i < daySteps.length; i++) {
                 for (int j = 0; j < daySteps[i].length; j++) {
@@ -91,37 +91,37 @@ public class StepTracker {
     }
 
     void setStepsGoal(Scanner scanner) {
-        System.out.println("Введите целевое количество шагов:");
+        System.out.println("Р’РІРµРґРёС‚Рµ С†РµР»РµРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ:");
         int i;
         i = scanner.nextInt();
-        if (i < 0) System.out.println("Вы ввели отрицательное значение. Целевое количество шагов " +
-                "не будет изменено.");
+        if (i < 0) System.out.println("Р’С‹ РІРІРµР»Рё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ. Р¦РµР»РµРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ " +
+                "РЅРµ Р±СѓРґРµС‚ РёР·РјРµРЅРµРЅРѕ.");
         else stepsGoal = i;
-        System.out.println("Целевое количество шагов: " + stepsGoal + ".");
+        System.out.println("Р¦РµР»РµРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ: " + stepsGoal + ".");
     }
 
 
     void showStatistics(Scanner scanner) {
-        int stepsSum = Statistix.countSum(daySteps, month);// для передачи в методы Converter
-        System.out.print("Текущий месяц: " + months[month] + ". ");
-        System.out.print("Текущий день: " + day + ". ");
-        System.out.println("Целевое количество шагов: " + stepsGoal + ".");
-        System.out.println("Показать статистику за текущий месяц?");
+        int stepsSum = Statistix.countSum(daySteps, month);// РґР»СЏ РїРµСЂРµРґР°С‡Рё РІ РјРµС‚РѕРґС‹ Converter
+        System.out.print("РўРµРєСѓС‰РёР№ РјРµСЃСЏС†: " + months[month] + ". ");
+        System.out.print("РўРµРєСѓС‰РёР№ РґРµРЅСЊ: " + day + ". ");
+        System.out.println("Р¦РµР»РµРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ: " + stepsGoal + ".");
+        System.out.println("РџРѕРєР°Р·Р°С‚СЊ СЃС‚Р°С‚РёСЃС‚РёРєСѓ Р·Р° С‚РµРєСѓС‰РёР№ РјРµСЃСЏС†?");
         if (!isYes(scanner)) {
             if (!isMonthSucceed(scanner)) return;
         }
-        System.out.println("Статистика за " + months[month] + ".");
-        System.out.println("Количество пройденных шагов по дням:");
+        System.out.println("РЎС‚Р°С‚РёСЃС‚РёРєР° Р·Р° " + months[month] + ".");
+        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕР№РґРµРЅРЅС‹С… С€Р°РіРѕРІ РїРѕ РґРЅСЏРј:");
         Statistix.showStepsOnDays(daySteps, month);
-        System.out.println("Общее количество шагов за месяц: " + stepsSum);
-        System.out.println("Максимальное пройденное количество шагов в месяце: " +
+        System.out.println("РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ Р·Р° РјРµСЃСЏС†: " + stepsSum);
+        System.out.println("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РїСЂРѕР№РґРµРЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ РІ РјРµСЃСЏС†Рµ: " +
                 Statistix.findMaxSteps(daySteps, month));
-        System.out.println("Среднее количество шагов: " +
+        System.out.println("РЎСЂРµРґРЅРµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ: " +
                 Statistix.countAvgSteps(daySteps, month));
-        System.out.println("Пройденная дистанция (в км): " + converter.convertToKm(stepsSum));
-        System.out.println("Количество сожжённых килокалорий (в ккал): " +
+        System.out.println("РџСЂРѕР№РґРµРЅРЅР°СЏ РґРёСЃС‚Р°РЅС†РёСЏ (РІ РєРј): " + converter.convertToKm(stepsSum));
+        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕР¶Р¶С‘РЅРЅС‹С… РєРёР»РѕРєР°Р»РѕСЂРёР№ (РІ РєРєР°Р»): " +
                 converter.convertToKcal(stepsSum));
-        System.out.println("Лучшая серия: " + Statistix.countBestSeries(daySteps, month, stepsGoal));
+        System.out.println("Р›СѓС‡С€Р°СЏ СЃРµСЂРёСЏ: " + Statistix.countBestSeries(daySteps, month, stepsGoal));
     }
 }
 
